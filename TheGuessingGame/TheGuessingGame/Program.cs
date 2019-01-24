@@ -11,8 +11,12 @@ namespace TheGuessingGame
             // group-driven game development.
 
             // DEFINE WINNING GAME STATE
-            // We'll probably want to make this random in the future!
-            int answer = 7;
+            // Made the win state Random! 
+            // Create a new random instance.
+            Random random = new Random();
+            // create an integer set it equal to a new random number with min and max bounds.  the min is inclusive, and the max is exclusive.
+            int answer = random.Next(1,11);
+            
 
             // UI ELEMENT - Let's introduce this program!
             Console.WriteLine("This is a guessing game. Please guess a number from 1 to 10!");
