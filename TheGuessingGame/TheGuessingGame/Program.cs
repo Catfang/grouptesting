@@ -13,10 +13,10 @@ namespace TheGuessingGame
             // DEFINE WINNING GAME STATE
             string inputLine = "";
             bool stillPlaying = true;
-            
+
             while (stillPlaying)
             {
-                
+
                 Console.Clear();
                 // Made the win state Random! 
                 // Create a new random instance.
@@ -41,13 +41,13 @@ namespace TheGuessingGame
                 // Find out if player wants to play again after being called a loser
                 Console.WriteLine("Would you like to play again?");
                 inputLine = Console.ReadLine();
-                if(inputLine == "n" || inputLine == "N") { stillPlaying = false; }
-                       
-            }
-            // Added exit to make it an instant exit instead of a multiple key press.
-            Environment.Exit(0);
+                if (inputLine == "n" || inputLine == "N") { stillPlaying = false; }
+                // TODO No does not work only n
+                // Added exit to make it an instant exit instead of a multiple key press.
+                Environment.Exit(0);
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }
