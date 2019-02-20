@@ -13,6 +13,7 @@ namespace TheGuessingGame
         public int Upperbound { get; private set; }
 
         public int Answer { get; private set; }
+        public int NumberOfGuesses { get; private set; }
 
         public bool IsOver { get; private set; }
 
@@ -23,13 +24,15 @@ namespace TheGuessingGame
         public GuessingGame(int lowerbound = 1, int upperbound = 10)
         {
             Lowerbound = lowerbound;
-            Upperbound = upperbound; 
+            Upperbound = upperbound;
+            NumberOfGuesses = 0;
             Answer = RNG.Next(lowerbound, upperbound + 1);
             IsOver = false;
         }
 
         public bool Guess(int guess)
         {
+            NumberOfGuesses++;
             if (guess == Answer)
                 IsOver = true;
             return IsOver;

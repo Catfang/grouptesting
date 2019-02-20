@@ -6,6 +6,8 @@ namespace TheGuessingGame
 {
     class Program
     {
+        private static GuessingGame game;
+
         static void Main(string[] args)
         {
             // This *very* buggy and brittle code is the start of our first
@@ -22,15 +24,14 @@ namespace TheGuessingGame
             {
 
                 //Create GuessingGame instance
-                GuessingGame game = new GuessingGame();
-
-                // UI ELEMENT - Let's introduce this program!
-                Console.WriteLine("This is a guessing game. Please guess a number from 1 to 10!");
-                Console.WriteLine("(Answer is actually {0})", game.Answer);
+                game = new GuessingGame();
 
                 string inputLine = "";
                 while (!game.IsOver)
                 {
+                    // UI ELEMENT - Let's introduce this program!
+                    DisplayMainUI();
+
                     // USER INPUT
                     inputLine = Console.ReadLine();
 
@@ -46,6 +47,7 @@ namespace TheGuessingGame
                     {
                         Console.WriteLine("Nope! Guess again!");
                     }
+                    Console.ReadKey();
                 }
 
                 // Find out if player wants to play again
@@ -60,6 +62,18 @@ namespace TheGuessingGame
             Environment.Exit(0);
 
             Console.ReadKey();
+        }
+
+        static void DisplayMainUI()
+        {
+            Console.Clear();
+            Console.WriteLine("==========================================================================");
+            Console.WriteLine("=");
+            Console.WriteLine("=   This is a guessing game. Please guess a number from 1 to 10!");
+            //Console.WriteLine("(Answer is actually {0})", game.Answer);
+            Console.WriteLine("=   You have guessed {0} times so far.", game.NumberOfGuesses);
+            Console.WriteLine("=");
+            Console.WriteLine("==========================================================================");
         }
     }
 }
