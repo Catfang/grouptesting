@@ -35,8 +35,13 @@ namespace TheGuessingGame
                     // USER INPUT
                     inputLine = Console.ReadLine();
 
-                    // Convert our answer to a string
-                    int guess = int.Parse(inputLine);
+                    // Convert our answer to an int after checking that it can be converted 
+                    bool attempt = int.TryParse(inputLine, out int guess);
+                    if (!attempt)
+                    {
+                        Console.WriteLine("Incorrect input.  Please input a number between{0} and {1}", game.Lowerbound, game.Upperbound);
+                    }
+                    
 
                     // Decide if our user has won
                     if (game.Guess(guess))
@@ -45,7 +50,7 @@ namespace TheGuessingGame
                     }
                     else
                     {
-                        Console.WriteLine("Nope! Guess again!");
+                        Console.WriteLine("Nope! Press any key to guess again!");
                     }
                     Console.ReadKey();
                 }
