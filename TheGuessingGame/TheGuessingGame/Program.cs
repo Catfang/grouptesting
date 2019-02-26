@@ -36,8 +36,8 @@ namespace TheGuessingGame
                     inputLine = Console.ReadLine();
 
                     // Convert our answer to an int after checking that it can be converted 
-                    bool attempt = int.TryParse(inputLine, out int guess);
-                    if (!attempt)
+                    bool parseAttempt = int.TryParse(inputLine, out int guess);
+                    if (!parseAttempt)
                     {
                         Console.WriteLine("Incorrect input.  Please input a number between{0} and {1}", game.Lowerbound, game.Upperbound);
                     }
