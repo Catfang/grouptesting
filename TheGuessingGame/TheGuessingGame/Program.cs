@@ -36,8 +36,8 @@ namespace TheGuessingGame
                     inputLine = Console.ReadLine();
 
                     // Convert our answer to an int after checking that it can be converted 
-                    bool attempt = int.TryParse(inputLine, out int guess);
-                    if (!attempt)
+                    bool parseAttempt = int.TryParse(inputLine, out int guess);
+                    if (!parseAttempt)
                     {
                         Console.WriteLine("Incorrect input.  Please input a number between{0} and {1}", game.Lowerbound, game.Upperbound);
                     }
@@ -77,6 +77,7 @@ namespace TheGuessingGame
             Console.WriteLine("=   This is a guessing game. Please guess a number from 1 to 10!");
             //Console.WriteLine("(Answer is actually {0})", game.Answer);
             Console.WriteLine("=   You have guessed {0} times so far.", game.NumberOfGuesses);
+            Console.WriteLine("=   Your Previous Guesses were :: {0}", game.PreviousGuesses);
             Console.WriteLine("=");
             Console.WriteLine("==========================================================================");
         }

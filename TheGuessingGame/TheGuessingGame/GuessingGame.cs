@@ -15,6 +15,8 @@ namespace TheGuessingGame
         public int Answer { get; private set; }
         public int NumberOfGuesses { get; private set; }
 
+        public string PreviousGuesses { get; private set; }
+
         public bool IsOver { get; private set; }
 
         Random RNG = new Random();
@@ -35,6 +37,7 @@ namespace TheGuessingGame
             NumberOfGuesses++;
             if (guess == Answer)
                 IsOver = true;
+            else { PreviousGuesses += " " + guess + " "; };
             return IsOver;
         }
 
